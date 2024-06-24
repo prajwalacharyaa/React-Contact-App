@@ -9,7 +9,7 @@ class AddContact extends React.Component {
     add = (e) => {
         e.preventDefault();
         if (this.state.name === "" || this.state.email === "") {
-            alert("ALl the fields are mandatory!");
+            alert("There should not be any empty Fields!!!");
             return;
         }
         this.props.addContactHandler(this.state);
@@ -18,7 +18,7 @@ class AddContact extends React.Component {
     render() {
         return (
             <div className="ui main">
-                <h2>Add Contact</h2>
+                <h2 style={{ color: '#1ca8f0', fontSize: '20px' }}>Add New Contact</h2>
                 <form className="ui form" onSubmit={this.add}>
                     <div className="field">
                         <label>Name</label>
@@ -40,7 +40,10 @@ class AddContact extends React.Component {
                             onChange={(e) => this.setState({ email: e.target.value })}
                         />
                     </div>
-                    <button className="ui button blue">Add</button>
+                    <div style={{ textAlign: 'center' }}>
+                        <button className="ui button blue" style={{ background: '#1ca8f0' }}>Add</button>
+
+                    </div>
                 </form>
             </div>
         );

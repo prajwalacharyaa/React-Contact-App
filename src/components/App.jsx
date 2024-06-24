@@ -4,6 +4,12 @@ import "./App.css";
 import Header from "./Header";
 import AddContact from "./AddContact";
 import ContactList from "./ContactList";
+import Menu from "./Topmenu";
+import {
+    BrowserRouter as Router, Routes,
+    Route,
+    useMatch,
+} from "react-router-dom"
 
 function App() {
     const LOCAL_STORAGE_KEY = "contacts";
@@ -30,11 +36,24 @@ function App() {
     }, [contacts]);
 
     return (
-        <div className="ui container">
-            <Header />
-            <AddContact addContactHandler={addContactHandler} />
-            <ContactList contacts={contacts} getContactId={removeContactHandler} />
-        </div>
+        <Router>
+            <div className="ui container">
+                <div>
+                    <Header />
+                    <Menu />
+                </div>
+
+                <Routes>
+                    <Route path="/" element={
+                        <AddContact addContactHandler={addContactHandler} />
+                    } />
+                    <Route path="/contacts" element={
+                        <ContactList contacts={contacts} getContactId={removeContactHandler} />
+                    } />
+
+                </Routes>
+            </div>
+        </Router>
     );
 }
 
