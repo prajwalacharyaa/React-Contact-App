@@ -5,6 +5,7 @@ import Header from "./Header";
 import AddContact from "./AddContact";
 import ContactList from "./ContactList";
 import Menu from "./Topmenu";
+import Notice from "./Notice"
 import {
     BrowserRouter as Router, Routes,
     Route,
@@ -41,6 +42,8 @@ function App() {
                 <div>
                     <Header />
                     <Menu />
+                    <Notice />
+
                 </div>
 
                 <Routes>
@@ -54,7 +57,7 @@ function App() {
                 </Routes>
             </div>
         </Router>
-    );
+    )
 }
 
 export default App;
